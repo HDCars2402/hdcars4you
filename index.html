@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HdCars4You | Car Rentals in Fraser Rise</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="#" class="logo">HdCars<span>4You</span></a>
+      <nav>
+        <a href="#fleet">Our Fleet</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#location">Pickup Location</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <span class="hero-tag">Fraser Rise, VIC</span>
+      <h1>Premium Car Rentals for Every Journey</h1>
+      <p>Transparent daily rates, unlimited kilometres, and easy local pickup in Fraser Rise.</p>
+      <a href="#fleet" class="btn-primary">Browse Available Cars</a>
+    </div>
+  </section>
+
+  <main class="container">
+    <section id="fleet" class="fleet-section">
+      <div class="section-header">
+        <h2>Available Fleet</h2>
+        <div class="filters">
+          <button class="filter-btn active" data-category="all">All</button>
+          <button class="filter-btn" data-category="Sedan">Sedan</button>
+          <button class="filter-btn" data-category="SUV">SUV</button>
+          <button class="filter-btn" data-category="Electric">Electric</button>
+        </div>
+      </div>
+
+      <div id="car-grid" class="car-grid"></div>
+    </section>
+
+    <section id="how-it-works" class="steps-section">
+      <h2>How It Works</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <h3>1. Choose Your Car</h3>
+          <p>Filter by vehicle type and compare daily rates and features.</p>
+        </div>
+        <div class="step-card">
+          <h3>2. Select Dates</h3>
+          <p>Pick your rental dates to see your exact total upfront.</p>
+        </div>
+        <div class="step-card">
+          <h3>3. Collect in Fraser Rise</h3>
+          <p>Pick up your vehicle from our Fraser Rise depot with zero hidden fees.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="location" class="location-section">
+      <div class="location-card">
+        <div>
+          <h2>Pickup & Return Location</h2>
+          <p><strong>HdCars4You — Fraser Rise Depot</strong></p>
+          <p class="muted-text">Fraser Rise, VIC 3336 (Flexible pickup times available upon booking)</p>
+        </div>
+        <a href="#fleet" class="btn-primary">Book a Vehicle</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Booking Modal -->
+  <div id="booking-modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="close-modal" class="close-btn" aria-label="Close modal">&times;</button>
+      <h2 id="modal-car-title">Book Vehicle</h2>
+      <p id="modal-car-rate" class="rate-tag"></p>
+
+      <form id="booking-form" action="https://formsubmit.co" method="POST">
+        <input type="hidden" name="_subject" value="New HdCars4You Booking Request" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" id="hidden-car-details" name="Vehicle_and_Total" />
+
+        <label>
+          Full Name
+          <input type="text" id="customer-name" name="Customer_Name" required placeholder="Alex Taylor" />
+        </label>
+        <label>
+          Email Address
+          <input type="email" id="customer-email" name="email" required placeholder="alex@example.com" />
+        </label>
+        <label>
+          Phone Number
+          <input type="tel" id="customer-phone" name="Phone_Number" required placeholder="0400 000 000" />
+        </label>
+        <label>
+          Pickup Location
+          <select id="pickup-location" name="Pickup_Location" required>
+            <option value="Fraser Rise Depot (VIC 3336)">Fraser Rise Depot (VIC 3336)</option>
+            <option value="Fraser Rise Local Delivery">Fraser Rise Local Delivery</option>
+          </select>
+        </label>
+        <div class="date-row">
+          <label>
+            Pickup Date
+            <input type="date" id="pickup-date" name="Pickup_Date" required />
+          </label>
+          <label>
+            Return Date
+            <input type="date" id="return-date" name="Return_Date" required />
+          </label>
+        </div>
+
+        <div class="price-summary">
+          <span>Estimated Total:</span>
+          <strong id="total-price">$0</strong>
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn-primary full-width">Confirm Reservation</button>
+      </form>
+    </div>
+  </div>
+
+    <footer class="footer">
+  <p>&copy; 2026 HdCars4You &bull; Fraser Rise, VIC &bull; <a href="mailto:hdcars4you@gmail.com" style="color: var(--gold);">hdcars4you@gmail.com</a></p>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
