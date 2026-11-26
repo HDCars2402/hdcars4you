@@ -40,7 +40,7 @@ body {
 
 /* Navbar */
 .navbar {
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   position: sticky;
@@ -53,41 +53,41 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 74px;
+  min-height: 72px;
+  padding: 0.5rem 0;
+  gap: 1rem;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-size: 1.55rem;
+.brand-name {
+  font-size: 1.6rem;
   font-weight: 900;
   text-decoration: none;
   color: var(--blue-dark);
   letter-spacing: -0.03em;
+  white-space: nowrap;
 }
 
-.logo img {
-  height: 44px;
-  width: auto;
-  object-fit: contain;
-  border-radius: 6px;
-}
-
-.logo-text span {
+.brand-name span {
   color: var(--red);
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+}
+
 nav a {
-  margin-left: 1.75rem;
   text-decoration: none;
   color: var(--text);
   font-weight: 600;
   font-size: 0.95rem;
   transition: color 0.2s;
+  white-space: nowrap;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active-link {
   color: var(--red);
 }
 
@@ -166,6 +166,24 @@ nav a:hover {
   transform: none;
 }
 
+.btn-outline {
+  display: inline-block;
+  background: var(--surface);
+  color: var(--blue-dark);
+  border: 2px solid var(--blue);
+  padding: 0.72rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline:hover {
+  background: var(--blue);
+  color: #ffffff;
+}
+
 .hero .btn-primary {
   background: #ffffff;
   color: var(--blue-dark);
@@ -184,7 +202,7 @@ nav a:hover {
 
 /* Fleet Section */
 .fleet-section {
-  padding: 4rem 0 3rem;
+  padding: 3.5rem 0 4.5rem;
 }
 
 .section-header {
@@ -198,7 +216,9 @@ nav a:hover {
 
 .section-header h2,
 .steps-section h2,
-.location-card h2 {
+.faq-section h2,
+.terms-section h2,
+.location-info h2 {
   font-size: 1.85rem;
   font-weight: 800;
   color: var(--blue-dark);
@@ -283,6 +303,7 @@ nav a:hover {
   padding: 0.22rem 0.7rem;
   border-radius: 999px;
   margin-bottom: 0.65rem;
+  display: inline-block;
 }
 
 .car-body h3 {
@@ -321,7 +342,7 @@ nav a:hover {
 
 /* How It Works */
 .steps-section {
-  padding: 2.5rem 0;
+  padding: 2.75rem 0 1.25rem;
 }
 
 .steps-section h2 {
@@ -359,32 +380,169 @@ nav a:hover {
   font-size: 0.95rem;
 }
 
-/* Location */
-.location-section {
-  padding: 2.5rem 0 4.5rem;
+/* FAQ Accordion */
+.faq-section {
+  padding: 2.75rem 0 1.25rem;
 }
 
-.location-card {
+.faq-section h2 {
+  margin-bottom: 1.5rem;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.15rem 1.4rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s;
+}
+
+.faq-item[open] {
+  border-color: var(--blue);
+}
+
+.faq-item summary {
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--blue-dark);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--red);
+  line-height: 1;
+}
+
+.faq-item[open] summary::after {
+  content: "\2212";
+}
+
+.faq-item p {
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Terms & Conditions */
+.terms-section {
+  padding: 2.75rem 0 1.25rem;
+}
+
+.terms-section h2 {
+  margin-bottom: 1.5rem;
+}
+
+.terms-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--blue);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.terms-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem 2rem;
+}
+
+.terms-list li {
+  position: relative;
+  padding-left: 1.35rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.terms-list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--red);
+  font-weight: 900;
+}
+
+.terms-list strong {
+  color: var(--text);
+}
+
+/* Location & Map */
+.location-section {
+  padding: 2.75rem 0 4.5rem;
+}
+
+.location-grid {
   background: linear-gradient(to right, #ffffff, var(--blue-light));
   border: 1px solid var(--blue-border);
   border-left: 6px solid var(--red);
   border-radius: 16px;
-  padding: 2.25rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 1.25rem;
+  gap: 2rem;
   box-shadow: var(--shadow-sm);
 }
 
-.location-card h2 {
-  margin-bottom: 0.4rem;
+.location-info h2 {
+  margin-bottom: 0.45rem;
 }
 
 .muted-text {
   color: var(--muted);
   margin-top: 0.25rem;
+}
+
+.location-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+}
+
+.location-map iframe {
+  width: 100%;
+  height: 250px;
+  border: 1px solid var(--blue-border);
+  border-radius: 12px;
+  display: block;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.map-link:hover {
+  color: var(--red);
+  text-decoration: underline;
 }
 
 /* Booking Modal */
@@ -407,153 +565,136 @@ nav a:hover {
 .modal-content {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-top: 5px solid var(--blue);
-  border-radius: 16px;
-  width: 100%;
-  max-width: 460px;
-  max-height: 92vh;
-  overflow-y: auto;
-  padding: 1.85rem;
-  position: relative;
-  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.22);
+border-top: 5px solid var(--blue);
+border-radius: 16px;
+width: 100%;
+max-width: 460px;
+max-height: 92vh;
+overflow-y: auto;
+padding: 1.85rem;
+position: relative;
+box-shadow: 0 24px 48px rgba(15, 23, 42, 0.22);
 }
-
 .modal-content h2 {
-  color: var(--blue-dark);
-  font-weight: 800;
+color: var(--blue-dark);
+font-weight: 800;
 }
-
 .close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1.15rem;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  color: var(--muted);
-  font-size: 1.35rem;
-  line-height: 1;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+position: absolute;
+top: 1rem;
+right: 1.15rem;
+background: var(--bg);
+border: 1px solid var(--border);
+border-radius: 50%;
+width: 32px;
+height: 32px;
+color: var(--muted);
+font-size: 1.35rem;
+line-height: 1;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
 }
-
 .close-btn:hover {
-  background: var(--red-light);
-  color: var(--red);
-  border-color: var(--red);
+background: var(--red-light);
+color: var(--red);
+border-color: var(--red);
 }
-
 .rate-tag {
-  color: var(--red);
-  font-weight: 700;
-  margin-bottom: 1.25rem;
+color: var(--red);
+font-weight: 700;
+margin-bottom: 1.25rem;
 }
-
 #booking-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
+display: flex;
+flex-direction: column;
+gap: 0.9rem;
 }
-
 #booking-form label {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text);
+display: flex;
+flex-direction: column;
+gap: 0.35rem;
+font-size: 0.88rem;
+font-weight: 600;
+color: var(--text);
 }
-
 #booking-form input,
 #booking-form select {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.65rem 0.85rem;
-  color: var(--text);
-  font-size: 0.95rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+background: var(--bg);
+border: 1px solid var(--border);
+border-radius: 8px;
+padding: 0.65rem 0.85rem;
+color: var(--text);
+font-size: 0.95rem;
+transition: border-color 0.2s, box-shadow 0.2s;
 }
-
 #booking-form input:focus,
 #booking-form select:focus {
-  outline: none;
-  background: #ffffff;
-  border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.14);
+outline: none;
+background: #ffffff;
+border-color: var(--blue);
+box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.14);
 }
-
 .date-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 0.75rem;
 }
-
 .price-summary {
-  background: var(--blue-light);
-  border: 1px solid var(--blue-border);
-  border-radius: 10px;
-  padding: 0.9rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 0.25rem;
-  font-weight: 600;
+background: var(--blue-light);
+border: 1px solid var(--blue-border);
+border-radius: 10px;
+padding: 0.9rem 1rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 0.25rem;
+font-weight: 600;
 }
-
 .price-summary strong {
-  color: var(--red);
-  font-size: 1.15rem;
-  font-weight: 800;
+color: var(--red);
+font-size: 1.15rem;
+font-weight: 800;
 }
-
 /* Footer */
 .footer {
-  background: var(--blue-dark);
-  color: rgba(255, 255, 255, 0.85);
-  text-align: center;
-  padding: 2.25rem 1rem;
-  font-size: 0.9rem;
+background: var(--blue-dark);
+color: rgba(255, 255, 255, 0.85);
+text-align: center;
+padding: 2.25rem 1rem;
+font-size: 0.9rem;
 }
-
 .footer a {
-  color: #ffffff;
-  font-weight: 700;
-  text-decoration: underline;
+color: #ffffff;
+font-weight: 700;
+text-decoration: underline;
 }
-
 .footer a:hover {
-  color: #fca5a5;
+color: #fca5a5;
 }
-
+@media (max-width: 768px) {
+.location-grid {
+grid-template-columns: 1fr;
+}
+}
 @media (max-width: 600px) {
-  .logo {
-    font-size: 1.25rem;
-    gap: 0.45rem;
-  }
-
-  .logo img {
-    height: 36px;
-  }
-
-  .hero {
-    padding: 4rem 0;
-  }
-
-  .hero h1 {
-    font-size: 2.1rem;
-  }
-
-  nav a {
-    margin-left: 0.9rem;
-    font-size: 0.88rem;
-  }
-
-  .date-row {
-    grid-template-columns: 1fr;
-  }
+.brand-name {
+font-size: 1.35rem;
+}
+nav {
+gap: 0.75rem;
+}
+nav a {
+font-size: 0.85rem;
+}
+.hero {
+padding: 4rem 0;
+}
+.hero h1 {
+font-size: 2.1rem;
+}
+.date-row {
+grid-template-columns: 1fr;
+}
 }

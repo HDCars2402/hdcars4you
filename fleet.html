@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Fleet | HdCars4You Fraser Rise</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="brand-name">HdCars<span>4You</span></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="fleet.html" class="active-link">Our Fleet</a>
+        <a href="index.html#location">Pickup Location</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="fleet" class="fleet-section">
+      <div class="section-header">
+        <div>
+          <h2>Available Fleet</h2>
+          <p class="muted-text">Select a vehicle below to check dates and reserve instantly.</p>
+        </div>
+        <div class="filters">
+          <button class="filter-btn active" data-category="all">All</button>
+          <button class="filter-btn" data-category="Sedan">Sedan</button>
+          <button class="filter-btn" data-category="SUV">SUV</button>
+          <button class="filter-btn" data-category="Electric">Electric</button>
+        </div>
+      </div>
+
+      <div id="car-grid" class="car-grid"></div>
+    </section>
+  </main>
+
+  <!-- Booking Modal -->
+  <div id="booking-modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="close-modal" class="close-btn" aria-label="Close modal">&times;</button>
+      <h2 id="modal-car-title">Book Vehicle</h2>
+      <p id="modal-car-rate" class="rate-tag"></p>
+
+      <form id="booking-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="e6384167-09b6-4e85-819d-a9efb721b571" />
+        <input type="hidden" name="redirect" value="https://github.io" />
+        <input type="hidden" name="subject" value="New HdCars4You Booking Request" />
+        <input type="hidden" id="hidden-car-details" name="Vehicle_and_Total" />
+
+
+        <label>
+          Full Name
+          <input type="text" id="customer-name" name="Customer_Name" required placeholder="Alex Taylor" />
+        </label>
+        <label>
+          Email Address
+          <input type="email" id="customer-email" name="email" required placeholder="alex@example.com" />
+        </label>
+        <label>
+          Phone Number
+          <input type="tel" id="customer-phone" name="Phone_Number" required placeholder="0400 000 000" />
+        </label>
+        <label>
+          Pickup Location
+          <select id="pickup-location" name="Pickup_Location" required>
+            <option value="Fraser Rise Depot (VIC 3336)">Fraser Rise Depot (VIC 3336)</option>
+            <option value="Fraser Rise Local Delivery">Fraser Rise Local Delivery</option>
+          </select>
+        </label>
+        <div class="date-row">
+          <label>
+            Pickup Date
+            <input type="date" id="pickup-date" name="Pickup_Date" required />
+          </label>
+          <label>
+            Return Date
+            <input type="date" id="return-date" name="Return_Date" required />
+          </label>
+        </div>
+
+        <div class="price-summary">
+          <span>Estimated Total:</span>
+          <strong id="total-price">$0</strong>
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn-primary full-width">Confirm Reservation</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 HdCars4You &bull; Fraser Rise, VIC &bull; <a href="mailto:hdcars4you@gmail.com">hdcars4you@gmail.com</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
