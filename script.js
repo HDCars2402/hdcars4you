@@ -1,39 +1,39 @@
 const cars = [
   {
     id: 1,
-    name: "Toyota Corolla Hybrid",
-    category: "Sedan",
+    name: "GWM H6",
+    category: "SUV",
     pricePerDay: 65,
     seats: 5,
     transmission: "Automatic",
-    image: "https://unsplash.com"
+    image: "images/GWM_H6.jpg"
   },
   {
     id: 2,
-    name: "Mazda CX-5 Touring",
+    name: "GWM Jolion",
     category: "SUV",
     pricePerDay: 89,
     seats: 5,
     transmission: "Automatic",
-    image: "https://unsplash.com"
+    image: "images/GWM_Jolion.jpg"
   },
   {
     id: 3,
-    name: "Tesla Model 3",
-    category: "Electric",
+    name: "MG ZS Facelift 2025",
+    category: "SUV",
     pricePerDay: 115,
     seats: 5,
-    transmission: "Single-Speed",
-    image: "https://unsplash.com"
+    transmission: "Automatic",
+    image: "images/MG_ZS_2025.jpg"
   },
   {
     id: 4,
-    name: "Hyundai Tucson AWD",
+    name: "MG HS",
     category: "SUV",
     pricePerDay: 95,
     seats: 5,
     transmission: "Automatic",
-    image: "https://unsplash.com"
+    image: "images/MG_HS.jpg"
   }
 ];
 
