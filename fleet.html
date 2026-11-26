@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Fleet | HdCars4You Fraser Rise</title>
+  <title>Our Fleet | HDCars4You Fraser Rise</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="navbar">
     <div class="container nav-content">
-      <a href="index.html" class="brand-name">HdCars<span>4You</span></a>
+      <a href="index.html" class="brand-name">HDCars<span>4You</span></a>
       <nav>
         <a href="index.html">Home</a>
         <a href="fleet.html" class="active-link">Our Fleet</a>
-        <a href="index.html#location">Pickup Location</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="terms.html">Terms</a>
+        <a href="index.html#location">Location</a>
       </nav>
     </div>
   </header>
@@ -47,9 +49,8 @@
       <form id="booking-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="e6384167-09b6-4e85-819d-a9efb721b571" />
         <input type="hidden" name="redirect" value="https://github.io" />
-        <input type="hidden" name="subject" value="New HdCars4You Booking Request" />
+        <input type="hidden" name="subject" value="New HDCars4You Booking Request" />
         <input type="hidden" id="hidden-car-details" name="Vehicle_and_Total" />
-
 
         <label>
           Full Name
@@ -86,13 +87,33 @@
           <strong id="total-price">$0</strong>
         </div>
 
+        <label class="terms-checkbox">
+          <input type="checkbox" id="agree-terms" name="Agreed_To_Terms" value="Yes" required />
+          <span>I have read and agree to the <a href="terms.html" target="_blank" rel="noopener noreferrer">Rental Terms &amp; Conditions</a>.</span>
+        </label>
+
         <button type="submit" id="submit-btn" class="btn-primary full-width">Confirm Reservation</button>
       </form>
     </div>
   </div>
 
+  <!-- Floating WhatsApp & Call Buttons -->
+  <div class="floating-contact">
+    <a href="tel:+61400000000" class="float-btn float-call" aria-label="Call HDCars4You">
+      &#9742; Call Us
+    </a>
+    <a
+      href="https://wa.me."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="float-btn float-whatsapp"
+      aria-label="Chat on WhatsApp">
+      WhatsApp Us
+    </a>
+  </div>
+
   <footer class="footer">
-    <p>&copy; 2026 HdCars4You &bull; Fraser Rise, VIC &bull; <a href="mailto:hdcars4you@gmail.com">hdcars4you@gmail.com</a></p>
+    <p>&copy; 2026 HDCars4You &bull; Fraser Rise, VIC &bull; <a href="mailto:hdcars4you@gmail.com">hdcars4you@gmail.com</a></p>
   </footer>
 
   <script src="script.js"></script>

@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HdCars4You | Car Rentals in Fraser Rise</title>
+  <title>HDCars4You | Car Rentals in Fraser Rise</title>
+  <link rel="stylesheet" href="https://unpkg.com" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="navbar">
     <div class="container nav-content">
-      <a href="index.html" class="brand-name">HdCars<span>4You</span></a>
+      <a href="index.html" class="brand-name">HDCars<span>4You</span></a>
       <nav>
         <a href="fleet.html">Our Fleet</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#faq">FAQ</a>
-        <a href="#terms">Terms</a>
+        <a href="terms.html">Terms</a>
         <a href="#location">Location</a>
       </nav>
     </div>
@@ -49,7 +50,7 @@
     </section>
 
     <section class="steps-section">
-      <h2>Why Rent With HdCars4You</h2>
+      <h2>Why Rent With HDCars4You</h2>
       <div class="steps-grid">
         <div class="step-card">
           <h3>Unlimited Kilometres</h3>
@@ -88,40 +89,40 @@
       </div>
     </section>
 
+    <!-- Key Terms Summary on Landing Page -->
     <section id="terms" class="terms-section">
-      <h2>Rental Terms & Conditions</h2>
+      <h2>Key Rental Terms</h2>
       <div class="terms-card">
         <ul class="terms-list">
-          <li><strong>Driver Licence & Age:</strong> Drivers must be at least 21 years old and hold a valid, full Australian or recognised international driver's licence (no Learner permits).</li>
-          <li><strong>Security Bond & Payment:</strong> Full rental payment and a refundable security deposit are required prior to vehicle handover in Fraser Rise.</li>
-          <li><strong>Fuel & Charging Policy:</strong> Vehicles are supplied with a full tank (or full charge for EVs) and must be returned at the same level to avoid refuelling fees.</li>
-          <li><strong>Permitted Use & Smoking:</strong> Vehicles may only be driven on sealed roads within Victoria unless agreed in writing. Strictly no smoking or pets inside any vehicle.</li>
-          <li><strong>Tolls, Fines & Accidents:</strong> The renter is responsible for all CityLink/EastLink tolls, traffic or parking infringements, and standard insurance excess in the event of damage.</li>
-          <li><strong>Cancellations & Extensions:</strong> Please notify us at least 24 hours in advance for booking changes, cancellations, or rental extensions (subject to availability).</li>
+          <li><strong>Driver Licence &amp; Age:</strong> Drivers must be at least 21 years old and hold a valid, full Australian or recognised international driver's licence.</li>
+          <li><strong>Refundable Security Bond:</strong> Full rental payment and a refundable security bond are required prior to handover in Fraser Rise.</li>
+          <li><strong>Fuel &amp; Charging Policy:</strong> Vehicles are supplied full and must be returned at the same fuel or EV charge level.</li>
+          <li><strong>No Smoking or Pets:</strong> Strictly no smoking, vaping, or pets inside any rental vehicle.</li>
         </ul>
+        <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <span class="muted-text" style="font-size: 0.9rem;">Please review our complete rental policies before pickup.</span>
+          <a href="terms.html" class="btn-outline">Read Full Terms &amp; Conditions &rarr;</a>
+        </div>
       </div>
     </section>
 
     <section id="location" class="location-section">
       <div class="location-grid">
         <div class="location-info">
-          <span class="badge">Local Pickup & Delivery</span>
-          <h2>Pickup & Return Location</h2>
-          <p><strong>HdCars4You — Fraser Rise Depot</strong></p>
+          <span class="badge">Local Pickup &amp; Delivery</span>
+          <h2>Pickup &amp; Return Location</h2>
+          <p><strong>HDCars4You — Fraser Rise Depot</strong></p>
           <p class="muted-text">Fraser Rise, VIC 3336 (Flexible pickup times available upon booking)</p>
           <p class="muted-text" style="margin-top: 0.75rem;">
             Serving Fraser Rise, Caroline Springs, Taylors Hill, Plumpton &amp; Melbourne's West.
           </p>
           <div class="location-actions">
-            <a href="fleet.html" class="btn-primary">View Fleet & Book</a>
+            <a href="fleet.html" class="btn-primary">View Fleet &amp; Book</a>
             <a href="mailto:hdcars4you@gmail.com" class="btn-outline">Email Us</a>
           </div>
         </div>
         <div class="location-map">
-          <iframe
-            title="HdCars4You Fraser Rise VIC 3336 Location Map"
-            src="https://openstreetmap.org">
-          </iframe>
+          <div id="fraser-rise-map"></div>
           <a
             href="https://google.com"
             target="_blank"
@@ -134,8 +135,40 @@
     </section>
   </main>
 
+  <!-- Floating WhatsApp & Call Buttons -->
+  <div class="floating-contact">
+    <a href="tel:+61400000000" class="float-btn float-call" aria-label="Call HDCars4You">
+      &#9742; Call Us
+    </a>
+    <a
+      href="https://wa.me."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="float-btn float-whatsapp"
+      aria-label="Chat on WhatsApp">
+      WhatsApp Us
+    </a>
+  </div>
+
   <footer class="footer">
-    <p>&copy; 2026 HdCars4You &bull; Fraser Rise, VIC &bull; <a href="mailto:hdcars4you@gmail.com">hdcars4you@gmail.com</a></p>
+    <p>&copy; 2026 HDCars4You &bull; Fraser Rise, VIC &bull; <a href="mailto:hdcars4you@gmail.com">hdcars4you@gmail.com</a></p>
   </footer>
+
+  <script src="https://unpkg.com"></script>
+  <script>
+    const mapEl = document.getElementById("fraser-rise-map");
+    if (mapEl && typeof L !== "undefined") {
+      const fraserRiseCoords = [-37.7176, 144.7248];
+      const map = L.map("fraser-rise-map").setView(fraserRiseCoords, 13);
+      L.tileLayer("https://{s}://{z}/{x}/{y}{r}.png", {
+        attribution: "&copy; OpenStreetMap &copy; CARTO",
+        maxZoom: 19
+      }).addTo(map);
+      L.marker(fraserRiseCoords)
+        .addTo(map)
+        .bindPopup("<strong>HDCars4You</strong><br>Fraser Rise, VIC 3336")
+        .openPopup();
+    }
+  </script>
 </body>
 </html>
